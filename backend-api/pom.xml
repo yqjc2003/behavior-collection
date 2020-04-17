@@ -8,18 +8,13 @@
         <version>0.0.1-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <artifactId>behavoir-collection-backend-api</artifactId>
+    <artifactId>behavoir-collection-frontend-mongo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>behavior-collection-backend-api</name>
-    <description>behavior-collection-backend-api</description>
-
+    <name>behavior-collection-frontend-mongo</name>
+    <description>behavior-collection-frontend-mongo</description>
 
     <dependencies>
-        <dependency>
-            <groupId>com.chen</groupId>
-            <artifactId>behavoir-collection-backend-mongo-starter</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+
     </dependencies>
 
     <build>
