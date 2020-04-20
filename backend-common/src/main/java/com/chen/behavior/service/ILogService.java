@@ -27,6 +27,15 @@ public interface ILogService {
     @Async
     void logBehavior(ProceedingJoinPoint joinPoint, LogBehavior logBehavior);
 
+    /**
+     * 构建用户行为实体类
+     *
+     * @param joinPoint       jp
+     * @param logBehavior     注解包含的信息
+     * @param properties      属性
+     * @param operatorService 当前登录人相关信息
+     * @return 用户行为实体类
+     */
     default Behavior buildBehaviorEntity(ProceedingJoinPoint joinPoint,
                                          LogBehavior logBehavior,
                                          BehaviorCollectionProperties properties,
