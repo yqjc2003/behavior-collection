@@ -16,11 +16,11 @@ public class Operator {
     /**
      * 操作人ID
      */
-    private Long operatorId;
+    private Long id;
 
     /**
      * 操作人
      */
-    private String operatorName;
+    private String name;
 
 }

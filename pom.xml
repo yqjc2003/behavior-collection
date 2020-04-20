@@ -6,13 +6,15 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.6.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
     </parent>
     <groupId>com.chen</groupId>
     <artifactId>behavoir-collection</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>behavior-collection</name>
     <description>behavior-collection</description>
+    <packaging>pom</packaging>
+
 
     <properties>
         <java.version>1.8</java.version>
@@ -22,8 +24,8 @@
     <modules>
         <module>backend-common</module>
         <module>backend-mongo</module>
-        <module>backend-elastic</module>
-        <module>backend-api</module>
+        <!--        <module>backend-elastic</module>-->
+        <module>backend-test</module>
     </modules>
 
     <dependencies>
@@ -35,6 +37,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
@@ -54,14 +63,5 @@
             <version>${commons-lang3.version}</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

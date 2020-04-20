@@ -12,6 +12,9 @@ import lombok.Data;
 @Data
 @Builder
 public class Behavior {
+
+    private String id;
+
     /**
      * 操作人
      */

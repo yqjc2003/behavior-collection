@@ -1,14 +1,13 @@
 package com.chen.behavior.service.impl;
 
 import com.chen.behavior.annotation.LogBehavior;
-import com.chen.behavior.annotation.LogModule;
 import com.chen.behavior.entity.Behavior;
+import com.chen.behavior.properties.BehaviorCollectionProperties;
 import com.chen.behavior.repository.LogElasticRepository;
 import com.chen.behavior.service.ILogService;
+import com.chen.behavior.service.IOperatorService;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.stereotype.Service;
-
-import java.time.Clock;
 
 /**
  * mongo实现
@@ -21,8 +20,16 @@ public class LogElasticServiceImpl implements ILogService {
 
     private final LogElasticRepository elasticRepository;
 
-    public LogElasticServiceImpl(LogElasticRepository elasticRepository) {
+    private final BehaviorCollectionProperties properties;
+
+    private final IOperatorService operatorService;
+
+    public LogElasticServiceImpl(LogElasticRepository elasticRepository,
+                                 BehaviorCollectionProperties properties,
+                                 IOperatorService operatorService) {
         this.elasticRepository = elasticRepository;
+        this.properties = properties;
+        this.operatorService = operatorService;
     }
 
     /**
@@ -33,26 +40,11 @@ public class LogElasticServiceImpl implements ILogService {
      */
     @Override
     public void logBehavior(ProceedingJoinPoint joinPoint, LogBehavior logBehavior) {
-
-        LogModule logModule = joinPoint.getTarget().getClass().getAnnotation(LogModule.class);
-        String moduleName = "";
-        if (logModule != null) {
-            moduleName = logModule.value();
+        if (!properties.getEnable()) {
+            return;
         }
-
-
-        Behavior behavior = Behavior.builder()
-                .appName("应用")
-                .module(moduleName)
-                .action(logBehavior.action())
-                .className(joinPoint.getTarget().getClass().getSimpleName())
-                .methodName(joinPoint.getSignature().getName())
-                .description(logBehavior.description())
-                .meta(logBehavior.meta())
-                .timestamp(Clock.systemDefaultZone().millis())
-                // .operator()
-                .build();
-
+        Behavior behavior = buildBehaviorEntity(joinPoint, logBehavior, properties, operatorService);
         elasticRepository.save(behavior);
     }
+
 }

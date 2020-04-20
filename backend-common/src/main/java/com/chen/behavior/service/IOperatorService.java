@@ -1,12 +1,14 @@
-package com.chen.behavior.entity;
+package com.chen.behavior.service;
+
+import com.chen.behavior.entity.Operator;
 
 /**
- * 用户行为
+ * 获取当前操作人信息
  *
  * @author jingchen
  * @since 2020-04-15
  */
-public interface OperatorHunter {
+public interface IOperatorService {
 
     /**
      * 获取操作人信息

@@ -6,24 +6,21 @@
         <groupId>com.chen</groupId>
         <artifactId>behavoir-collection</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
     </parent>
-    <artifactId>behavoir-collection-frontend-mongo</artifactId>
+    <artifactId>behavoir-collection-test-mongo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>behavior-collection-frontend-mongo</name>
-    <description>behavior-collection-frontend-mongo</description>
+    <name>behavior-collection-test-mongo</name>
+    <description>behavior-collection-test-mongo</description>
+    <packaging>jar</packaging>
 
     <dependencies>
+        <dependency>
+            <groupId>com.chen</groupId>
+            <artifactId>behavoir-collection-backend-mongo-starter</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

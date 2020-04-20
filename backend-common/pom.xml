@@ -6,20 +6,14 @@
         <groupId>com.chen</groupId>
         <artifactId>behavoir-collection</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
     </parent>
     <artifactId>behavoir-collection-backend-common</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>behavior-collection-backend-common</name>
     <description>behavior-collection-backend-common</description>
+    <packaging>jar</packaging>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
+    <dependencies>
+    </dependencies>
 </project>
